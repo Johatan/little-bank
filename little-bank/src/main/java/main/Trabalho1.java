@@ -46,13 +46,15 @@ public class Trabalho1 {
 	}
 	public static void run_() {
 		setBankData();
-		reception();
+		//reception();
+		//payment();
+		showBankData();
 	}
 	
 	public static void reception() {
-		System.out.println("Insira o numero da conta na qual você ira tranferir: ");
+		System.out.println("Insira o numero da sua conta: ");
 		int accountNumber = scanner.nextInt();  
-		System.out.println("Insira o valor na qual será transferido: ");
+		System.out.println("Insira o valor na qual será adicionado: ");
 		int receivedValor = scanner.nextInt();  
 		
 		boolean flag = false;
@@ -75,6 +77,46 @@ public class Trabalho1 {
 		}
 		if (notFound == true) {
 			System.out.println("Account NOT FOUND");
+		}
+	}
+	public static void payment() {
+		System.out.println("Insira o numero da sua conta: ");
+		int accountNumber = scanner.nextInt();  
+		System.out.println("Insira o valor do pagamento: ");
+		int paymentValor = scanner.nextInt();  
+		
+		boolean flag = false;
+		boolean notFound = false;
+		for (int i = 0; i < B.length; i++) {
+			if (flag == true) {
+				break;
+			}
+			for (int i2 = 0; i2 < B.length; i2++) {
+				if (B[i][i2] == accountNumber) {
+					C[i][i2] -= paymentValor;
+					System.out.println(A[i][i2] + " seu saldo atual é de: " + C[i][i2]);
+					flag = true;
+					notFound = false;
+					break;
+				} else {
+					notFound = true;
+				}
+			}
+		}
+		if (notFound == true) {
+			System.out.println("Account NOT FOUND");
+		}
+	}
+	public static void showBankData() {
+		System.out.println("Correntista-----Número da Conta----Saldo ");
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println("");
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+		for (int i = 0; i < B.length; i++) {
+			for (int i2 = 0; i2 < B.length; i2++) {
+				System.out.println(A[i][i2] + "-----" + B[i][i2] + "-----" + C[i][i2]);
+				System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+			}
 		}
 	}
 }
