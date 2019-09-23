@@ -1,8 +1,10 @@
+package main;
+
 public class Trabalho1 {
 	public static void main(String args[]){
-		this.run_()
+		run_();
 	}
-	run_() {
+	public static void run_() {
 		
 	}
 }
