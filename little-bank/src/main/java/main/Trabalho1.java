@@ -52,8 +52,10 @@ public class Trabalho1 {
 	public static void menu() {
 		boolean flag = true;
 		while(flag == true ) {
+			System.out.println(" ");
+			System.out.println("========================================");
 			System.out.println("1.reception  2.payment  3.showBankData 4.mostRichAccount  5.orderedSalaries  6.SAIR" );
-			System.out.println("Choose: ");
+			System.out.print("Choose: ");
 			int n = scanner.nextInt();
 			switch(n) {
 				case 1:
@@ -79,9 +81,9 @@ public class Trabalho1 {
 	}
 	
 	public static void reception() {
-		System.out.println("Insira o numero da sua conta: ");
+		System.out.print("Insira o numero da sua conta: ");
 		int accountNumber = scanner.nextInt();  
-		System.out.println("Insira o valor na qual será adicionado: ");
+		System.out.print("Insira o valor na qual será adicionado: ");
 		int receivedValor = scanner.nextInt();  
 		
 		boolean flag = false;
@@ -93,7 +95,7 @@ public class Trabalho1 {
 			for (int i2 = 0; i2 < B.length; i2++) {
 				if (B[i][i2] == accountNumber) {
 					C[i][i2] += receivedValor;
-					System.out.println(A[i][i2] + " seu saldo atual é de: " + C[i][i2]);
+					System.out.println(" \n-> " + A[i][i2] + " seu saldo atual é de: " + C[i][i2]);
 					flag = true;
 					notFound = false;
 					break;
@@ -107,9 +109,9 @@ public class Trabalho1 {
 		}
 	}
 	public static void payment() {
-		System.out.println("Insira o numero da sua conta: ");
+		System.out.print("Insira o numero da sua conta: ");
 		int accountNumber = scanner.nextInt();  
-		System.out.println("Insira o valor do pagamento: ");
+		System.out.print("Insira o valor do pagamento: ");
 		int paymentValor = scanner.nextInt();  
 		
 		boolean flag = false;
@@ -121,7 +123,7 @@ public class Trabalho1 {
 			for (int i2 = 0; i2 < B.length; i2++) {
 				if (B[i][i2] == accountNumber) {
 					C[i][i2] -= paymentValor;
-					System.out.println(A[i][i2] + " seu saldo atual é de: " + C[i][i2]);
+					System.out.println(" \n-> " + A[i][i2] + " seu saldo atual é de: " + C[i][i2]);
 					flag = true;
 					notFound = false;
 					break;
@@ -138,7 +140,7 @@ public class Trabalho1 {
 		System.out.println("--------------------------------------------------------------------------------------------");
 		for (int i = 0; i < B.length; i++) {
 			for (int i2 = 0; i2 < B.length; i2++) {
-				System.out.print(A[i][i2] + "||||" + B[i][i2] + "||||" + C[i][i2] + "\n");
+				System.out.print(" \n-> " + A[i][i2] + "||||" + B[i][i2] + "||||" + C[i][i2] + "\n");
 			}
 		}
 	}
@@ -159,9 +161,9 @@ public class Trabalho1 {
 			}
 		}
 		if (flag == true) {
-			System.out.println("O correntista mais rico é: " + A[a][b] + "||||" + B[a][b] + "||||" + C[a][b]);
+			System.out.println(" \n-> " + "O correntista mais rico é: " + A[a][b] + "||||" + B[a][b] + "||||" + C[a][b]);
 		} else {
-			System.out.println("Existe mais de um correntista com o maior salario.");
+			System.out.println(" \n-> " + "Existe mais de um correntista com o maior salario.");
 		}
 	}
 	public static void orderedSalaries() {
@@ -176,8 +178,10 @@ public class Trabalho1 {
                  }
              }
          }
+		System.out.println(" ");
 		for (int k = 0; k < vector.length; k++) {
-            System.out.print(vector[k] + "||||");                
+            System.out.print(vector[k] + " -> ");       
         }
+		System.out.println(" ");
 	}
 }
