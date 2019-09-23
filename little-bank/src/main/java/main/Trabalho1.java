@@ -6,6 +6,7 @@ public class Trabalho1 {
 	static String[][] A = new String[3][3];
 	static int[][] B = new int[3][3];
 	static double[][] C = new double[3][3];
+	static double[][] D = new double[7][3];
 	static Scanner scanner = new Scanner(System.in);
 	
 	public static void setBankData() {
@@ -46,9 +47,35 @@ public class Trabalho1 {
 	}
 	public static void run_() {
 		setBankData();
-		//reception();
-		//payment();
-		showBankData();
+		menu();
+	}
+	public static void menu() {
+		boolean flag = true;
+		while(flag == true ) {
+			System.out.println("1.reception  2.payment  3.showBankData 4.mostRichAccount  5.orderedSalaries  6.SAIR" );
+			System.out.println("Choose: ");
+			int n = scanner.nextInt();
+			switch(n) {
+				case 1:
+					reception();
+					break;
+			  	case 2:
+			  		payment();
+			  		break;
+			  	case 3:
+			  		showBankData();
+			  		break;
+			  	case 4:
+			  		mostRichAccount();
+			  		break;
+			  	case 5:
+			  		orderedSalaries();
+			  		break;
+			  	case 6:
+					flag = false;
+			  		break;	  
+			}
+		}
 	}
 	
 	public static void reception() {
@@ -108,15 +135,49 @@ public class Trabalho1 {
 		}
 	}
 	public static void showBankData() {
-		System.out.println("Correntista-----Número da Conta----Saldo ");
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
-		System.out.println("");
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println("--------------------------------------------------------------------------------------------");
 		for (int i = 0; i < B.length; i++) {
 			for (int i2 = 0; i2 < B.length; i2++) {
-				System.out.println(A[i][i2] + "-----" + B[i][i2] + "-----" + C[i][i2]);
-				System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+				System.out.print(A[i][i2] + "||||" + B[i][i2] + "||||" + C[i][i2] + "\n");
 			}
 		}
+	}
+	public static void mostRichAccount() {
+		int a = 0;
+		int b = 0;
+		boolean flag = false;
+		for (int i = 0; i < B.length; i++) {
+			for (int i2 = 0; i2 < B.length; i2++) {
+				if (C[a][b] < C[i][i2]) {
+					a = i;
+					b = i2;
+					flag = true;
+				}
+				if (C[0][0] > C[i][i2]) {
+					flag = true;
+				}
+			}
+		}
+		if (flag == true) {
+			System.out.println("O correntista mais rico é: " + A[a][b] + "||||" + B[a][b] + "||||" + C[a][b]);
+		} else {
+			System.out.println("Existe mais de um correntista com o maior salario.");
+		}
+	}
+	public static void orderedSalaries() {
+		double[] vector = {C[0][0],C[0][1],C[0][2],C[1][0],C[1][1],C[1][2],C[2][0],C[2][1],C[2][2]};
+		double aux = 0;
+		for (int i = 0; i < vector.length; i++) {
+             for (int j = 0; j < vector.length; j++) {
+                 if (vector[i] < vector[j]) {
+                     aux = vector[i];
+                     vector[i] = vector[j];
+                     vector[j] = aux;
+                 }
+             }
+         }
+		for (int k = 0; k < vector.length; k++) {
+            System.out.print(vector[k] + "||||");                
+        }
 	}
 }
