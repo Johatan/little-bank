@@ -10,13 +10,13 @@ public class Trabalho1 {
 	static Scanner scanner = new Scanner(System.in);
 	
 	public static void setBankData() {
-		A[0][0] = "Tib˙rcio";
+		A[0][0] = "Tib√∫rcio";
 		A[0][1] = "Ricardo";
-		A[0][2] = "Jo„o";
+		A[0][2] = "Jo√£o";
 		A[1][0] = "Felisbino";
-		A[1][1] = "Seu ZÈ";
+		A[1][1] = "Seu Z√©";
 		A[1][2] = "Dona Maria";
-		A[2][0] = "GedonstrÙncio";
+		A[2][0] = "Gedonstr√¥ncio";
 		A[2][1] = "Batman";
 		A[2][2] = "Homem de Ferro";
 		
@@ -52,10 +52,10 @@ public class Trabalho1 {
 	public static void menu() {
 		boolean flag = true;
 		while(flag == true ) {
-			System.out.println(" ");
-			System.out.println("========================================");
-			System.out.println("1.reception  2.payment  3.showBankData 4.mostRichAccount  5.orderedSalaries  6.SAIR" );
-			System.out.print("Choose: ");
+			JOptionPane.showMessageDialog(null, " ");
+			JOptionPane.showMessageDialog(null, "========================================");
+			JOptionPane.showMessageDialog(null, "1.reception  2.payment  3.showBankData 4.mostRichAccount  5.orderedSalaries  6.SAIR" );
+			JOptionPane.showInputDialog("Choose: ");
 			int n = scanner.nextInt();
 			switch(n) {
 				case 1:
@@ -81,9 +81,9 @@ public class Trabalho1 {
 	}
 	
 	public static void reception() {
-		System.out.print("Insira o numero da sua conta: ");
+		JOptionPane.showInputDialog("Insira o numero da sua conta: ");
 		int accountNumber = scanner.nextInt();  
-		System.out.print("Insira o valor na qual ser· adicionado: ");
+		JOptionPane.showInputDialog("Insira o valor na qual ser√° adicionado: ");
 		int receivedValor = scanner.nextInt();  
 		
 		boolean flag = false;
@@ -95,7 +95,7 @@ public class Trabalho1 {
 			for (int i2 = 0; i2 < B.length; i2++) {
 				if (B[i][i2] == accountNumber) {
 					C[i][i2] += receivedValor;
-					System.out.println(" \n-> " + A[i][i2] + " seu saldo atual È de: " + C[i][i2]);
+					JOptionPane.showMessageDialog(null, " \n-> " + A[i][i2] + " seu saldo atual √© de: " + C[i][i2]);
 					flag = true;
 					notFound = false;
 					break;
@@ -105,13 +105,13 @@ public class Trabalho1 {
 			}
 		}
 		if (notFound == true) {
-			System.out.println("Account NOT FOUND");
+			JOptionPane.showMessageDialog(null, "Account NOT FOUND");
 		}
 	}
 	public static void payment() {
-		System.out.print("Insira o numero da sua conta: ");
+		JOptionPane.showInputDialog("Insira o numero da sua conta: ");
 		int accountNumber = scanner.nextInt();  
-		System.out.print("Insira o valor do pagamento: ");
+		JOptionPane.showInputDialog("Insira o valor do pagamento: ");
 		int paymentValor = scanner.nextInt();  
 		
 		boolean flag = false;
@@ -123,7 +123,7 @@ public class Trabalho1 {
 			for (int i2 = 0; i2 < B.length; i2++) {
 				if (B[i][i2] == accountNumber) {
 					C[i][i2] -= paymentValor;
-					System.out.println(" \n-> " + A[i][i2] + " seu saldo atual È de: " + C[i][i2]);
+					JOptionPane.showMessageDialog(" \n-> " + A[i][i2] + " seu saldo atual √© de: " + C[i][i2]);
 					flag = true;
 					notFound = false;
 					break;
@@ -133,11 +133,11 @@ public class Trabalho1 {
 			}
 		}
 		if (notFound == true) {
-			System.out.println("Account NOT FOUND");
+			JOptionPane.showMessageDialog("Account NOT FOUND");
 		}
 	}
 	public static void showBankData() {
-		System.out.println("--------------------------------------------------------------------------------------------");
+		JOptionPane.showMessageDialog(null, "--------------------------------------------------------------------------------------------");
 		for (int i = 0; i < B.length; i++) {
 			for (int i2 = 0; i2 < B.length; i2++) {
 				System.out.print(" \n-> " + A[i][i2] + "||||" + B[i][i2] + "||||" + C[i][i2] + "\n");
@@ -161,9 +161,9 @@ public class Trabalho1 {
 			}
 		}
 		if (flag == true) {
-			System.out.println(" \n-> " + "O correntista mais rico È: " + A[a][b] + "||||" + B[a][b] + "||||" + C[a][b]);
+			JOptionPane.showMessageDialog(null, " \n-> " + "O correntista mais rico √©: " + A[a][b] + "||||" + B[a][b] + "||||" + C[a][b]);
 		} else {
-			System.out.println(" \n-> " + "Existe mais de um correntista com o maior salario.");
+			JOptionPane.showMessageDialog(null, " \n-> " + "Existe mais de um correntista com o maior salario.");
 		}
 	}
 	public static void orderedSalaries() {
@@ -178,10 +178,10 @@ public class Trabalho1 {
                  }
              }
          }
-		System.out.println(" ");
+		JOptionPane.showMessageDialog(null, " ");
 		for (int k = 0; k < vector.length; k++) {
             System.out.print(vector[k] + " -> ");       
         }
-		System.out.println(" ");
+		JOptionPane.showMessageDialog(null, " ");
 	}
 }
